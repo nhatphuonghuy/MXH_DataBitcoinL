@@ -29,7 +29,8 @@ def generate_sequences(args):
             os.makedirs(dir_name)    
     # Load data
     datadir_path=f'/kaggle/input/{args.data}'
-    data = torch.load(os.path.join(datadir_path, 'data.pt'))
+    data = torch.load(os.path.join(datadir_path, 'data.pt'), weights_only=True)
+    ############################################################################
     # 
     edges_index = data.edge_index
     edge_attr = data.edge_attr.clone() # The edge attr is minmax scaled, the last dim of edge_attr is timestamp

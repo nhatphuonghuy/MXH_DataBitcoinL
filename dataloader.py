@@ -103,7 +103,8 @@ def load_data(data_path='./data/2015', use_unlabeled = 'SEMI', scale='minmax', g
         np.random.seed(random_state)
         torch.manual_seed(random_state)
         torch.cuda.manual_seed_all(random_state)
-    data = torch.load(data_path)
+    data = torch.load(data_path, weights_only=True)
+
     if anomaly_rate:
         n_neg = (data.y == 0).sum().item()
         pos_ids = (data.y == 1).nonzero().view(-1).numpy()
