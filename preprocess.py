@@ -29,7 +29,7 @@ def generate_sequences(args):
             os.makedirs(dir_name)    
     # Load data
     datadir_path=f'/kaggle/input/{args.data}'
-    data = torch.load(os.path.join(datadir_path, 'data.pt'), weights_only=True)
+    data = torch.load(os.path.join(datadir_path, 'data.pt'))
     ############################################################################
     # 
     edges_index = data.edge_index
